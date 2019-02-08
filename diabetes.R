@@ -10,6 +10,5 @@ summary(my_data)
 #DiabetesPedigreeFunctionDiabetes pedigree function
 #AgeAge (years)
 #OutcomeClass variable (0 or 1) 268 of 768 are 1, the others are 0
-
 head(my_data)
 structure(my_data)
