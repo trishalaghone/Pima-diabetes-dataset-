@@ -10,7 +10,6 @@ summary(my_data)
 #DiabetesPedigreeFunctionDiabetes pedigree function
 #AgeAge (years)
 #OutcomeClass variable (0 or 1) 268 of 768 are 1, the others are 0
-
 head(my_data)
 structure(my_data)
 
@@ -19,22 +18,7 @@ library(ggplot2)
 library(ggcorrplot)
 library(GGally)
 library(PerformanceAnalytics)
-
-
-#Changing outcome from numerical to categorical varibale.
-my_data$Outcome<- is.factor(my_data$Outome)
-levels(my_data$Outcome) <- c("No","Yes")
-
-
-#correlation plot
-#This plot shows the relationship between the variables. 
-
-ggpairs(my_data, aes(color=Outcome, alpha=0.75), lower=list(continuous="smooth"))+ theme_bw()+
-labs(title="Correlation Plot of Variance(diabetes)")+
-theme(plot.title=element_text(face='bold',color='black',hjust=0.5,size=12))
-
-#From the box plots in the last segment, we see the variables Insulin, BloodPressure, and the DiabetesPedigreefunction 
-#contain many outliers.
+library(gridExtra)
 
 # Correlation matrix
 #This plot shows us correlation coeeficents of all the varaibles. 
@@ -54,9 +38,22 @@ ggcorrplot(corr, hc.order = TRUE,
 #Pregnancies and Age are strongly correlated with coeeficient value 0.54. 
 #SkinThickness , BMI and Skinthickness and Insulin are positively correlated with coeeficient values 0.4. 
 
+
+#Changing outcome from numerical to categorical varibale.
+my_data$Outcome<- is.factor(my_data$Outome)
+levels(my_data$Outcome) <- c("No","Yes")
+
+
+#correlation plot
+#This plot shows the relationship between the variables. 
+ggpairs(my_data, aes(color=Outcome, alpha=0.75), lower=list(continuous="smooth"))+ theme_bw()+
+  labs(title="Correlation Plot of Variance(diabetes)")+
+  theme(plot.title=element_text(face='bold',color='black',hjust=0.5,size=12))
+#From the box plots in the last segment, we see the variables Insulin, BloodPressure, and the DiabetesPedigreefunction 
+#contain many outliers.
+
 #stripchart is like scatter plots (or dot plots) of the given data. 
 #It's like an alternative to boxplots when sample sizes are small and are also used to check outliers present in each variables
-
 stripchart(my_data$BloodPressure,
            main="Blood pressure levels",
            xlab="Pressure levels",
@@ -78,3 +75,4 @@ grid.arrange(plot1, plot2, plot3, ncol = 3)
 missmap(my_data, main ="Missing values vs observed")
 
 #No missing Values occured in our dataset. 
+
