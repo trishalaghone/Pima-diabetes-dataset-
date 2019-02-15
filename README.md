@@ -16,3 +16,6 @@ The Pima diabetes dataset consists of 9 variables:
 #DiabetesPedigreeFunctionDiabetes -pedigree function
 #Age -(years)
 #OutcomeClass variable (0 or 1) 268 of 768 are 1, the others are 0
+
+Performed Visualizations on the dataset to understand the data better, to understand relation between the variables and to detect the outliers. 
+Data Visualizations will help us select the correct models. 
