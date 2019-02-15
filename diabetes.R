@@ -36,7 +36,7 @@ data(my_data)
 corr <- round(cor(my_data), 1)
 # Plot
 ggcorrplot(corr, hc.order = TRUE, 
-           type = "lower", 
+           type = "lower",  
            lab = TRUE, 
            lab_size = 3, 
            method="circle", 
