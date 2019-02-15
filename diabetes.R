@@ -35,7 +35,7 @@ theme(plot.title=element_text(face='bold',color='black',hjust=0.5,size=12))
 data(my_data)
 corr <- round(cor(my_data), 1)
 # Plot
-ggcorrplot(corr, hc.order = TRUE, 
+ggcorrplot(corr, hc.order = TRUE,  
            type = "lower",  
            lab = TRUE, 
            lab_size = 3, 
