@@ -33,6 +33,7 @@ We can understand the relationship between the variables with the help of the co
 
  Number of Pregnancies has an impact over diabetes outcome ?
  plotting preganancies against outcome will show how strongly they are correlated.
-
+ 
+Performed statistical tests t-test, f-test. hotelling t-test, levene test 
 Performed Visualizations on the dataset to understand the data better, to understand relation between the variables and to detect the outliers. 
 Data Visualizations will help us select the correct models. 
