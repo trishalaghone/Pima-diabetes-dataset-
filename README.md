@@ -17,5 +17,24 @@ The Pima diabetes dataset consists of 9 variables:
 #Age -(years)
 #OutcomeClass variable (0 or 1) 268 of 768 are 1, the others are 0
 
+
+Data Is Only As Good As The Questions You Ask
+ The truth is that no matter how advanced your IT infrastructure is, your data will not provide you with a ready-made solution unless you ask it specific questions regarding data analysis. 
+
+Diabetes dataset. 
+What exactly do I want to find out? 
+The database consists of various medical factors that will tells us if a female is diabetic or non-diabetic.Build different models which will fit the data and will help us accurately predict if the females has diabetes or not. 
+
+What does the data 'look' like? Does it follow any known probability distributions?
+
+
+
+How are the various measurements related?
+We can understand the relationship between the variables with the help of the correlogram matrix. The correlogram matrix shows correlation coefficients between each variable. A positive correlation coeeficient shows that they are directly proportional to each other and negative coeffiecinet shows that they are inversely proportional. 
+
+
+
+
+
 Performed Visualizations on the dataset to understand the data better, to understand relation between the variables and to detect the outliers. 
 Data Visualizations will help us select the correct models. 
