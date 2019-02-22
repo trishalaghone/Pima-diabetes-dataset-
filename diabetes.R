@@ -76,3 +76,48 @@ missmap(my_data, main ="Missing values vs observed")
 
 #No missing Values occured in our dataset. 
 
+ #t-test 
+
+with(data=my_data,t.test(Pregnancies[Outcome==1],Pregnancies[Outcome==0],var.equal=TRUE))
+with(data=my_data,t.test(Glucose[Outcome==1],Glucose[Outcome==0],var.equal=TRUE))
+with(data=my_data,t.test(Insulin[Outcome==1],Insulin[Outcome==0],var.equal=TRUE))
+with(data=my_data,t.test(SkinThickness[Outcome==1],SkinThickness[Outcome==0],var.equal=TRUE))
+with(data=my_data,t.test(BMI[Outcome==1],BMI[Outcome==0],var.equal=TRUE))
+with(data=my_data,t.test(DiabetesPedigreeFunction[Outcome==0],DiabetesPedigreeFunction[Outcome==1],var.equal=TRUE))
+with(data=my_data,t.test(Age[Outcome==1],Age[Outcome==0],var.equal=TRUE))
+with(data=my_data,t.test(BloodPressure[Outcome==1],BloodPressure[Outcome==0],var.equal=TRUE))
+
+#Hotelling
+
+install.packages("Hotelling")
+library(Hotelling)
+
+t2testsparr <- hotelling.test(Pregnancies + Glucose + Insulin + SkinThickness + BMI+ DiabetesPedigreeFunction + Age  ~ Outcome, data=my_data)
+cat("T2 statistic =",t2testsparr$stat[[1]],"\n")
+print(t2testsparr)
+
+
+#F-test
+attach(my_data)
+var.test(Pregnancies[Outcome==1],Pregnancies[Outcome==0])
+var.test(Glucose[Outcome==1],Glucose[Outcome==0])
+var.test(Insulin[Outcome==1],Insulin[Outcome==0])
+var.test(SkinThickness[Outcome==1],SkinThickness[Outcome==0])
+var.test(BMI[Outcome==1],BMI[Outcome==0])
+var.test(DiabetesPedigreeFunction[Outcome==1],DiabetesPedigreeFunction[Outcome==0])
+var.test(Age[Outcome==1],Age[Outcome==0])
+var.test(BloodPressure[Outcome==1],BloodPressure[Outcome==0])
+
+#levene Test - To test equality of variables 
+
+install.packages("car")
+library(car)
+#my_data$Outcome <- is.factor(my_data$outcome)
+#levels(my_data$Outcome) <- c("Non-Diabetic","Diabetic")
+#leveneTest(my_data$Pregnancies, my_data$Outcome,center=mean)
+
+with(my_data,leveneTest(Outcome,Pregnancies))
+with(my_data,leveneTest(Outcome,BMI))
+with(my_data,leveneTest(Outcome,Insulin))
+with(my_data,leveneTest(Outcome,BloodPressure))
+with(my_data,leveneTest(Outcome,Age))
