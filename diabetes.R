@@ -23,7 +23,7 @@ library(gridExtra)
 chooseCRANmirror(graphics=FALSE, ind=1)
 
 
-#t-test 
+#t-test - #It is used to determine whether there is a significant difference between the means of two groups
 
 
 attach(my_data)
@@ -89,6 +89,9 @@ ggcorrplot(corr, hc.order = TRUE,
 #Pregnancies and Age are strongly correlated with coeeficient value 0.54. 
 #SkinThickness , BMI and Skinthickness and Insulin are positively correlated with coeeficient values 0.4. 
 
+#plot pregnancies and outcome 
+ggplot(my_data,aes(x=Pregnancies,fill=(Outcome==1)))+geom_bar(position="Dodge")+scale_fill_manual(values=c("yellow","green"))+scale_x_continuous(limits=c(0,16))+labs(title="Pregnancies v Outcome")
+ #not much impact on output variable
 
 #Changing outcome from numerical to categorical varibale.
 my_data$Outcome<- is.factor(my_data$Outome)
